@@ -7,4 +7,10 @@ Note that this repo is just a primitive edition which uses the original Vision T
 
 Here, I show some results of the repo. Although the results is not that entertaining, this method may demonstrate that a pretrained ViT can also be used in style transfer task for the perceptual ability of the multi-head attention layers.
 
+* Content & Style Image
+
+<img src="img/town.jpg" width=400> <img src="img/starry_night.jpg" width=330>
+
+* Results
+
 <img src="results/generated99.jpg"> <img src="results/generated199.jpg"> <img src="results/generated299.jpg">
