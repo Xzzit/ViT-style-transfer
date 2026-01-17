@@ -38,7 +38,8 @@ input_img = nn.Parameter(input_img)
 extractor = ViTFeatureExtractor(chosen_layers=[0, 2, 4, 7, 10]).to(device)
 
 # optimizer
-optimizer = optim.Adam([input_img], lr=5e-3)
+# optimizer = optim.Adam([input_img], lr=5e-3)
+optimizer = optim.LBFGS([input_img])
 
 print("Calculating targets...")
 with torch.no_grad():
@@ -48,7 +49,7 @@ with torch.no_grad():
     style_grams = {k: gram_matrix(v) for k, v in style_features.items() if k in ['block_0', 'block_2', 'block_4']}
     content_targets = {k: v for k, v in content_features.items() if k in ['block_7', 'block_10']}
 
-style_weight = 2
+style_weight = 8e-1
 content_weight = 1
 tv_weight = 1e-3
 
