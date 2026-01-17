@@ -1,16 +1,39 @@
-# Vision Transformer-based Style Transfer
-In this repo, I provide a way of using multi-head attention layers in ViT to do the style transfer task.
+# Vision Transformer (ViT) Style Transfer
 
-I was inspired by the fact that the visualization of the filters in multi-head attention layers share a same pattern to the CNN filters. More information can be checked in [Exploring Explainability for Vision Transformers](https://jacobgil.github.io/deeplearning/vision-transformer-explainability)
+A PyTorch implementation of Neural Style Transfer using **Vision Transformers (ViT)**. 
 
-Note that this repo is just a primitive edition which uses the original Vision Transformer. One can also use more advanced architecture of ViT (like Swin-Transformer).
+Unlike traditional methods that rely on Convolutional Neural Networks (e.g., VGG19), this project explores the perceptual capabilities of **Multi-Head Self-Attention (MSA)** mechanisms. It demonstrates that pretrained ViTs can effectively capture both artistic style and semantic content for high-quality image synthesis.
 
-Here, I show some results of the repo. Although the results is not that entertaining, this method may demonstrate that a pretrained ViT can also be used in style transfer task for the perceptual ability of the multi-head attention layers.
+## 🖼️ Gallery
 
-* Content & Style Image
+| Content Image | Style Image | Stylized Result
+| :---: | :---: | :---: |
+| <img src="img/town.jpg" height=250> | <img src="img/starry_night.jpg" height=250> | <img src="results/final.jpg" height=250>
 
-<img src="img/town.jpg" width=400> <img src="img/starry_night.jpg" width=330>
+## 🚀 Key Features
 
-* Results
+* **ViT-based Feature Extraction**: Leverages a pretrained `ViT-B/16` (ImageNet) to extract deep features.
+* **Patch-wise Gram Matrix**: Calculates style loss based on the correlation between spatial patch tokens, **explicitly excluding the `[CLS]` token** to avoid semantic contamination.
+* **Artifact Suppression**: Implements **Total Variation (TV) Loss** to mitigate the checkerboard artifacts (grid patterns) inherent to ViT's 16x16 patch division.
+* **Optimization**: Uses the **LBFGS** optimizer for faster convergence and smoother, noise-free image generation compared to standard Adam optimization.
 
-<img src="results/generated99.jpg"> <img src="results/generated199.jpg"> <img src="results/generated299.jpg">
+## 🛠️ Installation
+
+This project is built with PyTorch 2.9.1. It is recommended to use Conda for environment management.
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Xzzit/ViT-style-transfer.git
+cd ViT-style-transfer
+```
+
+2. **Create and activate a Conda environment**
+```bash
+conda env create -f environment.yml
+conda activate vit-st
+```
+
+## 💻 Usage
+```bash
+python stylize.py
+```

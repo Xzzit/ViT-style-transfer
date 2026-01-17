@@ -1,0 +1,16 @@
+name: vit-st
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.14
+  - pip
+
+  - pip:
+    - --index-url https://download.pytorch.org/whl/cu128
+    - --extra-index-url https://pypi.org/simple
+    - torch==2.9.1
+    - torchvision
+    - pytorch_pretrained_vit
