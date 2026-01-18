@@ -23,8 +23,8 @@ This project is built with PyTorch 2.9.1. It is recommended to use Conda for env
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/Xzzit/ViT-style-transfer.git
-cd ViT-style-transfer
+git clone https://github.com/Xzzit/ViT_style_transfer.git
+cd ViT_style_transfer
 ```
 
 2. **Create and activate a Conda environment**
